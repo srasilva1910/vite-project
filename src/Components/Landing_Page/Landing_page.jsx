@@ -1,11 +1,14 @@
 import React from "react"; // Importing the necessary modules from React library
-
+import Navbar from "../Navbar/Navbar";
+import Login from "../login/login";
+import Signup from "../signup/signup";
 import "./LandingPage.css"; // Importing the CSS styles for the Landing_Page component
 
 // Defining the Function component Landing_Page
 const Landing_Page = () => {
   return (
     <section className="hero-section"> {/* Creating a section with class name 'hero-section' */}
+
       <div>
         <div data-aos="fade-up" className="flex-hero"> {/* Creating a div with data-aos attribute and class name 'flex-hero' */}
             

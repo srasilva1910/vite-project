@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { API_URL } from '../../config';
 import './signup.css';
+
+const API_URL = "http://localhost:8181"
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -18,30 +19,46 @@ const Signup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      const response = await fetch(`${API_URL}/api/auth/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+  try {
+    console.log("API_URL:", API_URL);
 
-      const data = await response.json();
+    const { name, email, password } = formData;
 
-      if (response.ok) {
-        sessionStorage.setItem('auth-token', data.authtoken);
-        navigate('/');
-      } else {
-        const errorMsg = data.error || (data.errors && data.errors.map(e => e.msg).join(', '));
-        setError(errorMsg || 'Registration failed. Please try again.');
+    const response = await fetch(`${API_URL}/api/auth/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, password, role: formData.role, phone: formData.phone }),
+});
+
+    const data = await response.json();
+
+    if (response.ok) {
+      sessionStorage.setItem('auth-token', data.authtoken);
+      sessionStorage.setItem('name', formData.name);
+      sessionStorage.setItem('email', formData.email);
+      navigate('/');
+    } else {
+      // Manejar errores que vienen como array u objeto
+      let errorMsg = '';
+
+      if (Array.isArray(data.error)) {
+        errorMsg = data.error.map(e => e.msg).join(', ');
+      } else if (data.error) {
+        errorMsg = data.error;
+      } else if (data.errors) {
+        errorMsg = data.errors.map(e => e.msg).join(', ');
       }
-    } catch (err) {
-      setError('Unable to connect to the server. Please try again later.');
+
+      setError(errorMsg || 'Registration failed. Please try again.');
     }
-  };
+
+  } catch (err) {
+    setError('Unable to connect to the server. Please try again later.');
+  }
+};
 
   const handleReset = () => {
     setFormData({ role: 'patient', name: '', phone: '', email: '', password: '' });

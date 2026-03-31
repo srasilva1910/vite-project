@@ -38,14 +38,29 @@ const Navbar = () => {
     const handleDropdown = () => {
       setShowDropdown(!showDropdown);
     }
-    useEffect(() => { 
-      const storedemail = sessionStorage.getItem("email");
 
-      if (storedemail) {
-            setIsLoggedIn(true);
-            setUsername(storedemail);
-          }
-        }, []);
+    
+   useEffect(() => { 
+  const token = sessionStorage.getItem("auth-token");
+
+  if (token) {
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1])); 
+      console.log("Decoded payload:", payload); // depuración
+      setUsername(
+  payload.user?.name || payload.name || payload.user?.email || payload.email || "Invitado"
+);
+setEmail(
+  payload.user?.email || payload.email || ""
+);
+      setIsLoggedIn(true);
+    } catch (err) {
+      console.error("Error decoding token", err);
+      setIsLoggedIn(false);
+    }
+  }
+}, []);
+
   return (
     <nav>
       <div className="nav__logo">
@@ -69,29 +84,32 @@ const Navbar = () => {
         <li className="link">
          <Link to="/reviews">Reviews</Link>
         </li>
-        {isLoggedIn?(
-          <>
-            <li className="link">
-              <button className="btn2" onClick={handleLogout}>
-                Logout
-              </button>
-            </li>
-            
-          </>
-        ) : (
-          <>
-            <li className="link">
-              <Link to="/signup">
-                <button className="btn1">Sign Up</button>
-              </Link>
-            </li>
-            <li className="link">
-              <Link to="/login">
-                <button className="btn1">Login</button>
-              </Link>
-            </li>
-          </>
-        )}
+        {isLoggedIn ? (
+  <>
+    <li className="link">
+      <span>Welcome, {username}!</span>
+    </li>
+    <li className="link">
+      <button className="btn2" onClick={handleLogout}>
+        Logout
+      </button>
+    </li>
+  </>
+) : (
+  <>
+    <li className="link">
+      <Link to="/signup">
+        <button className="btn1">Sign Up</button>
+      </Link>
+    </li>
+    <li className="link">
+      <Link to="/login">
+        <button className="btn1">Login</button>
+      </Link>
+    </li>
+  </>
+)}
+
       </ul>
     </nav>
   );

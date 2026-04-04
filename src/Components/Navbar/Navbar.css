@@ -5,10 +5,10 @@
 
 .navbar {
     display: flex;
-    justify-content: space-between; /* Pushes left and right groups to the edges */
-    align-items: center; /* Vertically centers items */
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
     background-color: #fff;
-    padding: 10px 20px;
     color: #333;
 }
 
@@ -17,10 +17,30 @@
     align-items: center;
 }
 
-.nav-center {
-    /* Centers the center group by consuming all available space on both sides */
-    margin-left: auto;
-    margin-right: auto;
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  position: relative;
+}
+
+/* CENTRO PERFECTO */
+.nav__links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+/* DERECHA */
+.nav__auth {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .nav-left a, .nav-center a, .nav-right a {

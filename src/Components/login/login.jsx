@@ -25,10 +25,24 @@ const Login = () => {
 
       const data = await response.json();
 
-      if (response.ok) {
+          console.log("RESPUESTA:", data); // 👈
+
+       if (response.ok && data.authtoken) {
         sessionStorage.setItem('auth-token', data.authtoken);
+
+        // 👇 guardar datos
+        sessionStorage.setItem('name', data.user.name);
+        sessionStorage.setItem('email', data.user.email);
+
+        // 👇 AVISAR AL NAVBAR
+        window.dispatchEvent(new Event("storage"));
+
+        console.log("LOGIN OK");
+
         navigate('/');
       } else {
+              console.log("LOGIN ERROR"); // 👈
+
         setError(data.error || 'Invalid credentials. Please try again.');
       }
     } catch (err) {

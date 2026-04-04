@@ -36,9 +36,11 @@ passport.deserializeUser(function (id, cb) {
     cb(null, id);
 });
 
+//Test route
+<Route path="/test" element={<TestPage />} />
+
 // Route 1: Registering A New User: POST: http://localhost:8181/api/auth/register. No Login Required
 router.post('/register',[
-      console.log('POST /api/auth/register', req.body),
     body('email', "Please Enter a Vaild Email").isEmail(),
     body('name', "Username should be at least 4 characters.").isLength({ min: 4 }),
     body('password', "Password Should Be At Least 8 Characters.").isLength({ min: 8 }),
@@ -70,8 +72,10 @@ router.post('/register',[
         const payload = {
             user: {
                 id: newUser.id,
+                name: newUser.name,
+                email: newUser.email
             }
-        }
+         }
         const authtoken = jwt.sign(payload, JWT_SECRET);
         res.json({ authtoken });
 
@@ -104,11 +108,19 @@ router.post('/login', [
             if (checkHash) {
                 let payload = {
                     user: {
-                        id: theUser.id
+                        id: theUser.id,
+                        name: theUser.name,
+                        email: theUser.email
                     }
-                }
+                 }
                 const authtoken = jwt.sign(payload, JWT_SECRET);
-                return res.status(200).json({ authtoken });
+                    return res.status(200).json({
+                    authtoken,
+                    user: {
+                        name: theUser.name,
+                        email: theUser.email
+                    }
+                });            
             } else {
                 return res.status(403).json({ error: "Invalid Credentials" });
             }
@@ -146,8 +158,10 @@ router.put('/update', [
         const payload = {
             user: {
                 id: updatedUser.id,
+                name: updatedUser.name,
+                email: updatedUser.email
             },
-        };
+         };
 
         const authtoken = jwt.sign(payload, JWT_SECRET);
         res.json({ authtoken });

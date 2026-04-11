@@ -1,0 +1,28 @@
+.appointment-card {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  z-index: 9999;
+
+  background: #ffffff;
+  border-left: 6px solid #22c55e; /* verde éxito */
+  padding: 16px 18px;
+  border-radius: 12px;
+
+  width: 300px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+  animation: slideIn 0.4s ease;
+}
+
+/* animación */
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

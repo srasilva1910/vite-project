@@ -2,8 +2,8 @@
 .container {
     max-width: 900px; /* Set maximum width for the container */
     margin: 0 auto; /* Center the container horizontally */
-    padding: 40px; /* Add padding inside the container */
-    margin-top: 10%; /* Set top margin as a percentage of the viewport height */
+    margin-top: 0; /* Set top margin as a percentage of the viewport height */
+
     overflow: hidden; /* Hide any overflowing content */
 }
 
@@ -25,7 +25,6 @@
 
 /* Styles for the main signup text */
 .signup-text {
-    margin-top: 30px; /* Add top margin */
     grid-column: 1 / 4; /* Span across all three columns */
     text-align: center; /* Center-align text */
 }
@@ -51,7 +50,7 @@
 .signup {
     flex: 1; /* Use flexible layout to fill available space */
     background-color: #fff; /* Set background color to white */
-    padding: 40px; /* Add padding inside the element */
+    /*padding: 40px;  Add padding inside the element */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow with opacity */
 }
 

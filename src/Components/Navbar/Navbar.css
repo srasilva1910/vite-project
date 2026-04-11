@@ -5,11 +5,13 @@
 
 .navbar {
     display: flex;
+    height: 70px;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
     background-color: #fff;
     color: #333;
+    position: relative;
 }
 
 .nav-left, .nav-right, .nav-center {
@@ -18,22 +20,15 @@
 }
 
 
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 30px;
-  position: relative;
-}
-
 /* CENTRO PERFECTO */
 .nav__links {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   gap: 2rem;
   list-style: none;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 /* DERECHA */
@@ -41,6 +36,8 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+    white-space: nowrap; /* evita saltos de línea */
+
 }
 
 .nav-left a, .nav-center a, .nav-right a {
@@ -219,3 +216,7 @@
     color:white; /* Hover effect */
 }
   
+.welcome {
+  margin-right: 10px;
+  font-weight: 500;
+}

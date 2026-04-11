@@ -1,10 +1,11 @@
 /* Styles for the main container */
 .container {
-    max-width: 900px; /* Maximum width of the container */
+    max-width: 900px; /* Set maximum width for the container */
     margin: 0 auto; /* Center the container horizontally */
-    padding: 40px; /* Padding inside the container */
-    margin-top: 10%; /* Top margin of 10% */
+    margin-top: 5rem; /* Set top margin as a percentage of the viewport height */
+    overflow: hidden; /* Hide any overflowing content */
 }
+
 
 /* Styles for form groups */
 .form-group {
@@ -20,7 +21,7 @@
 
 /* Styles for form controls */
 .form-control {
-    width: 40%; /* Width of form controls */
+    width: 100%; /* Width of form controls */
     padding: 8px; /* Padding inside form controls */
     font-size: 16px; /* Font size of form controls */
     border: 1px solid #ccc; /* Border around form controls */

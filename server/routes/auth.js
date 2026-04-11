@@ -36,8 +36,6 @@ passport.deserializeUser(function (id, cb) {
     cb(null, id);
 });
 
-//Test route
-<Route path="/test" element={<TestPage />} />
 
 // Route 1: Registering A New User: POST: http://localhost:8181/api/auth/register. No Login Required
 router.post('/register',[

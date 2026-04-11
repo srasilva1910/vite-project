@@ -1,3 +1,4 @@
 .App {
+  padding-top: 70px; /* misma altura del navbar */
   width: 100%;
 }

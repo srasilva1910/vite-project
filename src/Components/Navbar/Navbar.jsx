@@ -31,14 +31,13 @@ const Navbar = () => {
     setEmail("");
   };
 
-  useEffect(() => {
+useEffect(() => {
+  const loadUser = () => {
     const token = sessionStorage.getItem("auth-token");
 
     if (token) {
       try {
         const payload = JSON.parse(atob(token.split(".")[1]));
-
-        console.log("Decoded payload:", payload);
 
         const name =
           payload.user?.name ||
@@ -62,7 +61,17 @@ const Navbar = () => {
     } else {
       setIsLoggedIn(false);
     }
-  }, []);
+  };
+
+  loadUser();
+
+  // 👇 escuchar cambios (login/logout en otras partes)
+  window.addEventListener("storage", loadUser);
+
+  return () => {
+    window.removeEventListener("storage", loadUser);
+  };
+}, []);
 
   return (
     <nav className="navbar">
@@ -71,13 +80,13 @@ const Navbar = () => {
     <Link to="/">
       StayHealthy <i style={{ color: "#2190FF" }} className="fa fa-user-md"></i>
     </Link>
-    <span>.</span>
   </div>
 
   {/* CENTER */}
   <ul className="nav__links">
     <li className="link"><Link to="/">Home</Link></li>
-    <li className="link"><Link to="/search/doctors">Appointments</Link></li>
+    <li className="link"><Link to="/instant-consultation">Instant Consultation</Link></li>
+    <li className="link"><Link to="/find-doctor">Appointments</Link></li>
     <li className="link"><Link to="/healthblog">Health Blog</Link></li>
     <li className="link"><Link to="/reviews">Reviews</Link></li>
   </ul>
@@ -86,7 +95,9 @@ const Navbar = () => {
   <div className="nav__auth">
     {isLoggedIn ? (
       <>
-        <span>Welcome, {username} 👋</span>
+        <span className="welcome">
+          Welcome, <strong>{username}</strong> 👋
+        </span>
         <button className="btn2" onClick={handleLogout}>Logout</button>
       </>
     ) : (

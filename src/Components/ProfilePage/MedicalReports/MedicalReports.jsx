@@ -57,13 +57,22 @@ useEffect(() => {
           <p className="no-reports">No reports available</p>
         ) : (
           reports.map((r) => (
-            <div key={r._id} className="report-item">
-                <span>{r.filename || "Report"}</span>
-              <button onClick={() => handleDownload(r._id)}>
-                ⬇️ Download
-              </button>
-            </div>
-          ))
+<div key={r._id} className="report-item">
+  <div className="report-left">
+    <span className="file-icon">📄</span>
+    <span className="file-name">
+      {r.filename || "Report"}
+    </span>
+
+  <button
+    className="download-btn"
+    onClick={() => handleDownload(r._id, r.filename)}
+  >
+    Download
+  </button>
+    </div>
+
+</div>          ))
         )}
       </div>
   );

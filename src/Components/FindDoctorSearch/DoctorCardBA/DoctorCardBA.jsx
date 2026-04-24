@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import './DoctorCardIC.css';
-import AppointmentFormIC from '../AppointmentFormIC/AppointmentFormIC';
+import './DoctorCardBA.css';
+import AppointmentFormBA from '../AppointmentFormBA/AppointmentFormBA';
 import { v4 as uuidv4 } from 'uuid';
 
-const DoctorCardIC = ({ name, speciality, experience, ratings }) => {
+const DoctorCardBA = ({ name, speciality, experience, ratings }) => {
   const [showModal, setShowModal] = useState();
   const [appointments, setAppointments] = useState(() => {
   return JSON.parse(localStorage.getItem('appointmentData')) || [];
@@ -127,7 +127,7 @@ appointments.length > 0 && (
     </button>
   </div>
 )) : (
-  <AppointmentFormIC
+  <AppointmentFormBA
     onSubmit={(data) => {
       handleFormSubmit(data);
       setViewMode("details"); // 👈 cambia a confirmación
@@ -142,4 +142,4 @@ appointments.length > 0 && (
   );
 };
 
-export default DoctorCardIC;
+export default DoctorCardBA;

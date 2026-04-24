@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './FindDoctorSearch.css';
 import { useSearchParams } from 'react-router-dom';
-import FindDoctorSearchIC from './FindDoctorSearchIC/FindDoctorSearchIC';
-import DoctorCardIC from './DoctorCardIC/DoctorCardIC';
+import FindDoctorSearchBA from './FindDoctorSearchBA/FindDoctorSearchBA';
+import DoctorCardBA from './DoctorCardBA/DoctorCardBA';
 
 const FindDoctorSearch = () => {
   const [searchParams] = useSearchParams();
@@ -39,7 +39,7 @@ const FindDoctorSearch = () => {
 
   return (
       <div className="searchpage-container">
-        <FindDoctorSearchIC />
+        <FindDoctorSearchBA />
 
         <div className="search-results-container">
           {list.length > 0 ? (
@@ -47,7 +47,7 @@ const FindDoctorSearch = () => {
               <h2>{list.length} doctors available</h2>
 
               {list.map((doctor) => (
-                <DoctorCardIC {...doctor} key={doctor.name} />
+                <DoctorCardBA {...doctor} key={doctor.name} />
               ))}
             </>
           ) : (

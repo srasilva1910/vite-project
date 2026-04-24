@@ -12,7 +12,6 @@
     padding-left: 5px;
 }
 
-
 .search-location-input-box {
     height: 40px;
     width: 100%;
@@ -68,53 +67,34 @@
 
 }
 
-
-
-.doctor-search-box {
-    display: flex;
-    align-items: center;
-    position: relative; /* 👈 clave */
-    margin-bottom: 20px;
-    box-shadow: rgba(187, 28, 28, 0.1) 0 -1px 0 0 inset;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    border-right: none;
-    height: 40px;
-    padding-left: 5px;
-}
-
-.search-doctor-input-box {
-     flex: 1; /* 👈 ESTO ARREGLA TODO */
-    height: 40px;
-   width: 100%;
-   padding: 6px 10px;
-    font-size: 14px;
-    border: 1px solid rgb(59, 58, 58);
-    border-right: none;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-
-.findiconimg {
+.search-btn {
     width: 40px;
     height: 40px;
+    flex-shrink: 0; /* 👈 clave: evita que crezca */
+    
     display: flex;
     align-items: center;
     justify-content: center;
+
     border: 1px solid rgb(59, 58, 58);
     border-left: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    flex-shrink: 0; /* 👈 evita que desaparezca */
 
+    background: #fff;
+    cursor: pointer;
 }
 
-.search-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
+.search-doctor-input-box {
+        height: 40px;
     width: 100%;
-    height: 100%;
+    border: 1px solid rgb(59, 58, 58);
+    border-right: none; /* 👈 une con el botón */
+
+    padding: 6px 20px 5px 10px;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .findIcon {
@@ -124,15 +104,15 @@
 
 .search-doctor-input-results {
     position: absolute;
-    top: 100%;
+    top: 45px;
     left: 0;
     width: 100%;
-    z-index: 5;
-    height: 420px;
-    margin-top: 2px;
-    border: 1px solid #555;
+    z-index: 10;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ddd;
 }
-
 .search-doctor-result-item {
     height: 60px;
     display: flex;
@@ -144,6 +124,18 @@
     cursor: pointer;
     text-align: left;
 }
+
+.search-results-container .doctorcard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+
 
 .search-doctor-result-item:hover {
     background-color: #f0f0f5;
@@ -169,22 +161,88 @@
     text-transform: uppercase;
     justify-self: flex-end;
 }
-
-.search-btn {
-  cursor: pointer;
+.home-search-container {
+    /* width: 712px; */
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
 }
 
 .finddoctor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-}
+    background: #fff;
+    padding: 24px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
 
-.mainimg{
+} 
+.finddoctor .mainimg{
     width: 312px;
     height: 312px;
     object-fit: cover;
     object-position: center;
     border-radius: 5px;
+}
+
+/* CONTENEDOR */
+.home-search-container {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* WRAPPER RELATIVO */
+.search-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* INPUT */
+.search-input {
+    width: 100%;
+    height: 44px;
+    padding: 0 45px 0 15px; /* espacio para icono */
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+/* FOCUS bonito */
+.search-input:focus {
+    outline: none;
+    border-color: #2190FF;
+    box-shadow: 0 0 0 3px rgba(33,144,255,0.15);
+}
+
+/* ICONO */
+.search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+}
+
+/* HOVER */
+.search-icon:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* DROPDOWN */
+.search-doctor-input-results {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #ddd;
 }

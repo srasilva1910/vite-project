@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -12,6 +13,7 @@ const Navbar = () => {
 
   const handleClick = () => setClick(!click);
   
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     sessionStorage.removeItem("auth-token");
@@ -32,6 +34,9 @@ const Navbar = () => {
     setIsLoggedIn(false);
     setUsername("");
     setEmail("");
+    
+    navigate("/");
+
   };
 
 useEffect(() => {

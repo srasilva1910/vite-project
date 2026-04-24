@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import './FindDoctorSearchIC.css';
+import './FindDoctorSearchBA.css';
 import { useNavigate } from 'react-router-dom';
 import searchIcon from '../../../assets/searchIcon.png';
-
 
 const initSpeciality = [
   'Dentist',
@@ -14,7 +13,7 @@ const initSpeciality = [
   'Ayurveda'
 ];
 
-const FindDoctorSearchIC = () => {
+const FindDoctorSearchBA = () => {
   const [doctorResultHidden, setDoctorResultHidden] = useState(true);
   const [searchDoctor, setSearchDoctor] = useState('');
   const [specialities] = useState(initSpeciality);
@@ -26,14 +25,14 @@ const FindDoctorSearchIC = () => {
     setDoctorResultHidden(true);
 
     // ✅ SOLO navegar (SIN reload)
-    navigate(`/instant-consultation?speciality=${speciality}`);
+    navigate(`/find-doctor?speciality=${speciality}`);
   };
 
   return (
     <div className='finddoctor'>
-        <h1>Find a doctor and consult instantly</h1>
+        <h1>Find a doctor and book an appointment</h1>
 
-        <div className="home-search-container">
+<div className="home-search-container">
   <div className="search-wrapper">
 
     <input
@@ -73,8 +72,8 @@ const FindDoctorSearchIC = () => {
 
   </div>
 </div>
-        </div>
+    </div>
   );
 };
 
-export default FindDoctorSearchIC;
+export default FindDoctorSearchBA;

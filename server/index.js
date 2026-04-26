@@ -5,12 +5,11 @@ const http = require('http');
 const connectToMongo = require('./db');
 const app = express();
 
-
+import dotenv from "dotenv";
+dotenv.config();
 
 app.set('view engine','ejs')
 app.use(express.static('public'))
-
-const PORT = process.env.PORT || 8181;
 
 
 // Middleware
@@ -38,6 +37,5 @@ app.get('/', (req, res) => {
 
 
   // Start the server
-app.listen(PORT, () => {
-console.log(`Server is running on port http://localhost:${PORT}`);
-});
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Server running`));

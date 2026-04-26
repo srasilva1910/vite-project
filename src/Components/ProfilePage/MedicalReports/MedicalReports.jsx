@@ -23,7 +23,7 @@ useEffect(() => {
 
   const handleDownload = async (id) => {
   try {
-    const res = await fetch(`http://localhost:8181/api/reports/${id}`, {
+    const res = await fetch(`https://stayhealthy-dgz2.onrender.com/api/reports/${id}`, {
       headers: {
         "auth-token": sessionStorage.getItem("auth-token"),
       },

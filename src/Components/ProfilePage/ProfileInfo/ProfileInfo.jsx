@@ -13,7 +13,7 @@ const ProfileInfo = () => {
   const [editing, setEditing] = useState(false);
  
   useEffect(() => {
-  fetch("http://localhost:8181/api/user/me", {
+  fetch("https://stayhealthy-dgz2.onrender.com/api/user/me", {
     headers: {
       "auth-token": sessionStorage.getItem("auth-token"),
     },
@@ -33,7 +33,7 @@ const ProfileInfo = () => {
 
 
   const handleSave = async () => {
-  const res = await fetch("http://localhost:8181/api/user/update", {
+  const res = await fetch("https://stayhealthy-dgz2.onrender.com/api/user/update", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

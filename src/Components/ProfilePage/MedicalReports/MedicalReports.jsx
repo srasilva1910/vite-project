@@ -6,7 +6,7 @@ const MedicalReports = () => {
   console.log("TOKEN:", sessionStorage.getItem("auth-token"));
 
 useEffect(() => {
-  fetch("http://localhost:8181/api/reports", {
+  fetch("https://stayhealthy-dgz2.onrender.com/api/reports", {
     headers: {
       "auth-token": sessionStorage.getItem("auth-token"),
     },

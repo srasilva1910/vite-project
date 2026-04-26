@@ -15,7 +15,7 @@ app.use(express.static('public'))
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: "*",
+    origin: "https://stayhealthyf.onrender.com",
   credentials: true
 
 }

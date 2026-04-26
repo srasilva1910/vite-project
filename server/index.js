@@ -5,8 +5,8 @@ const http = require('http');
 const connectToMongo = require('./db');
 const app = express();
 
-import dotenv from "dotenv";
-dotenv.config();
+require("dotenv").config();
+
 
 app.set('view engine','ejs')
 app.use(express.static('public'))

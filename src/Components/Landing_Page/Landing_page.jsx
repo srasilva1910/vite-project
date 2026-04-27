@@ -27,9 +27,9 @@ const Landing_Page = () => {
                   <div className="blue1 blob"></div>
               </div>
             <h4>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque at quae ducimus. Suscipit omnis quibusdam non cum rem voluptatem!
+              Your health is your most valuable asset. StayHealthy helps you take care of it—one step at a time.
             </h4>
-            <a href="#services"> {/* Creating a hyperlink to jump to the 'services' section */}
+            <a href="/find-doctor"> {/* Creating a hyperlink to jump to the 'services' section */}
               <button className="button">Get Started</button>
             </a>
         </div>

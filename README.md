@@ -1,6 +1,6 @@
-# 🏥 StayHealthy App
+# Frontend Capstone Project - App Name: 🏥 StayHealthy 
 
-A full-stack web application built with **React + Vite** for the frontend, **Node.js + Express** for the backend, and **MongoDB Atlas** as the database.
+A full-stack web application built with **React + Vite** for the frontend, **Node.js + Express** for the backend, and **MongoDB Atlas** as the database. Developed as a frontend capstone project for the course Frontend Development, from IBM in Coursera.
 
 🔗 Live Demo: https://stayhealthyf.onrender.com/
 

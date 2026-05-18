@@ -139,6 +139,9 @@
     color: #3685fb;
 }
 
+.mobile-buttons {
+  display: none;
+}
 
 /* Keyframes for slide down animation */
 @keyframes slideDown {

@@ -29,8 +29,6 @@ const FindDoctorSearchBA = () => {
   };
 
   return (
-    <div className='finddoctor'>
-        <h1>Find a doctor and book an appointment</h1>
 
 <div className="home-search-container">
   <div className="search-wrapper">
@@ -78,7 +76,6 @@ const FindDoctorSearchBA = () => {
 
   </div>
 </div>
-    </div>
   );
 };
 

@@ -198,20 +198,35 @@
 
 /* INPUT */
 .search-input {
-    width: 100%;
-    height: 44px;
-    padding: 0 45px 0 15px; /* espacio para icono */
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    font-size: 14px;
-    transition: all 0.2s ease;
+  width: 100%;
+
+  height: 64px;
+
+  padding: 0 60px 0 24px;
+
+  border-radius: 20px;
+
+  border: 1px solid rgba(255,255,255,.5);
+
+  background: rgba(255,255,255,.7);
+
+  backdrop-filter: blur(10px);
+
+  font-size: 16px;
+
+  transition: .3s ease;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.05);
 }
 
-/* FOCUS bonito */
 .search-input:focus {
-    outline: none;
-    border-color: #2190FF;
-    box-shadow: 0 0 0 3px rgba(33,144,255,0.15);
+  outline: none;
+
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 4px rgba(37,99,235,.12);
 }
 
 /* ICONO */

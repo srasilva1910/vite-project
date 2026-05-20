@@ -28,9 +28,6 @@ const FindDoctorSearchIC = () => {
   };
 
   return (
-    <div className='finddoctor'>
-        <h1>Find a doctor and consult instantly</h1>
-
         <div className="home-search-container">
   <div className="search-wrapper">
 
@@ -77,7 +74,7 @@ const FindDoctorSearchIC = () => {
 
   </div>
 </div>
-        </div>
+
   );
 };
 

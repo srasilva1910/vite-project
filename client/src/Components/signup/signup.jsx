@@ -69,7 +69,7 @@ const handleSubmit = async (e) => {
     <div className="auth-container">
       <div className="auth-card">
 
-        <h2>Create Account 🚀</h2>
+        <h2>Create Account</h2>
         <p className="auth-subtext">
           Already have an account? <Link to="/login">Login</Link>
         </p>

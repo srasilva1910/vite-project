@@ -196,18 +196,26 @@ doctorAppointments.length > 0 && (
     <div>
     <p>Booking confirmed</p>
 
-    <button onClick={() => {
-handleCancel(
-  doctorAppointments[doctorAppointments.length - 1].id
-);      setViewMode("form");
-    }}>
-      Cancel
-    </button>
+<button
+  className="modal-btn danger"
+  onClick={() => {
+    handleCancel(
+      doctorAppointments[doctorAppointments.length - 1].id
+    );
 
-    <button onClick={() => setShowModal(false)}>
-      Close
-    </button>
-  </div>
+    setViewMode("form");
+  }}
+>
+  Cancel Appointment
+</button>
+<div className="modal-actions">
+  <button
+    className="modal-btn secondary"
+    onClick={() => setShowModal(false)}
+  >
+    Close
+  </button>
+</div>  </div>
 )) : (
   <AppointmentFormBA
     onSubmit={(data) => {
@@ -217,16 +225,15 @@ handleCancel(
   />
 )}
 
-    <button
-      onClick={() => setShowModal(false)}
-      style={{
-        marginTop: "15px",
-        padding: "10px 20px",
-        cursor: "pointer"
-      }}
-    >
-      Close
-    </button>
+    
+<div className="modal-actions">
+  <button
+    className="modal-btn secondary"
+    onClick={() => setShowModal(false)}
+  >
+    Close
+  </button>
+</div>
 
     </div>
 </Popup>

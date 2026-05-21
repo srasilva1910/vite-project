@@ -58,7 +58,7 @@ const Login = () => {
       <div className="auth-container">
         <div className="auth-card">
 
-          <h2>Welcome Back 👋</h2>
+          <h2>Welcome Back</h2>
           <p className="auth-subtext">
             New here? <Link to="/signup">Create an account</Link>
           </p>

@@ -88,8 +88,12 @@ const AppointmentFormBA = ({ doctorName, doctorSpeciality, onSubmit }) => {
         </select>
       </div>
 
-      <button type="submit">Book Now</button>
-    </form>
+<button
+  type="submit"
+  className="submit-appointment-btn"
+>
+  Confirm Appointment
+</button>    </form>
   );
 };
 

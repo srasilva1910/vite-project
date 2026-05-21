@@ -85,7 +85,7 @@ Before running the project locally, make sure you have:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/srasilva1910/med_appt.git
+git clone https://github.com/srasilva1910/stayhealthy_app.git
 cd med_appt
 ```
 

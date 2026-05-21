@@ -14,15 +14,16 @@ Frontend: https://stayhealthyf.onrender.com/
 
 ## ✨ Features
 
-- Responsive modern UI
-- Appointment management system
-- REST API integration
-- MongoDB Atlas cloud database
-- Client-server architecture
-- Dynamic routing with React Router
-- API communication using Axios
-- Environment-based configuration
-- Scalable frontend/backend separation
+✨ Features
+
+* Responsive healthcare-focused UI
+* Appointment scheduling system
+* Secure frontend-backend communication
+* REST API integration
+* MongoDB Atlas cloud database
+* Dynamic routing with React Router
+* Scalable client-server architecture
+* Environment-based configuration
 
 ---
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ProfileInfo.css"
-
+import API_URL from "../../../config/api";
 
 const ProfileInfo = () => {
   const [user, setUser] = useState({
@@ -12,20 +12,27 @@ const ProfileInfo = () => {
 
   const [editing, setEditing] = useState(false);
  
-  useEffect(() => {
-  fetch("https://stayhealthy-dgz2.onrender.com/api/user/me", {
+useEffect(() => {
+
+  fetch(`${API_URL}/api/user/me`, {
     headers: {
       "auth-token": sessionStorage.getItem("auth-token"),
     },
   })
     .then((res) => res.json())
-.then((data) =>
-  setUser((prev) => ({
-    ...prev,
-    ...(data.user || data),
-  }))
-);}, []);
+    .then((data) => {
 
+      setUser((prev) => ({
+        ...prev,
+        ...(data.user || data),
+      }));
+
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+}, []);
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -33,7 +40,7 @@ const ProfileInfo = () => {
 
 
   const handleSave = async () => {
-  const res = await fetch("https://stayhealthy-dgz2.onrender.com/api/user/update", {
+const res = await fetch(`${API_URL}/api/user/update`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -43,8 +50,8 @@ const ProfileInfo = () => {
       name: user.name,
       phone: user.phone,
     }),
-  });
-
+  }
+);
   const data = await res.json();
   setUser(data);
   setEditing(false);

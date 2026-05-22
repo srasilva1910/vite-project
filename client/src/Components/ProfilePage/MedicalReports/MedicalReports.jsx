@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./MedicalReports.css";
+import API_URL from "../../../config/api";
+
 
 const MedicalReports = () => {
   const [reports, setReports] = useState([]);
   console.log("TOKEN:", sessionStorage.getItem("auth-token"));
 
 useEffect(() => {
-  fetch("https://stayhealthy-dgz2.onrender.com/api/reports", {
-    headers: {
-      "auth-token": sessionStorage.getItem("auth-token"),
-    },
+fetch(`${API_URL}/api/reports`, {
+  headers: {
+    "auth-token": sessionStorage.getItem("auth-token"),
+  },
   })
     .then((res) => {
       console.log("STATUS:", res.status);
@@ -23,7 +25,7 @@ useEffect(() => {
 
   const handleDownload = async (id) => {
   try {
-    const res = await fetch(`https://stayhealthy-dgz2.onrender.com/api/reports/${id}`, {
+    const res = await fetch(`${API_URL}/api/reports/${id}`, {
       headers: {
         "auth-token": sessionStorage.getItem("auth-token"),
       },

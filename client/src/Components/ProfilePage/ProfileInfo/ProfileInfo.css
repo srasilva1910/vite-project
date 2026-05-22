@@ -5,17 +5,58 @@
 }
 
 .profile-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-  height: 100%;
+  background: rgba(255,255,255,.7);
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,.5);
+
+  border-radius: 24px;
+
+  box-shadow: 0 20px 60px rgba(15,23,42,.08);
+  background: rgba(255,255,255,.65);
+
+backdrop-filter: blur(18px);
+
+-webkit-backdrop-filter: blur(18px);
+padding: 20px;
+
+}
+.reports-card {
+background: rgba(255,255,255,.7);
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,.5);
+
+  border-radius: 24px;
+
+  box-shadow: 0 20px 60px rgba(15,23,42,.08);
+  background: rgba(255,255,255,.65);
+
+backdrop-filter: blur(18px);
+
+-webkit-backdrop-filter: blur(18px);
+padding: 20px;
+}
+
+
+
+.profile-card,
+.appointments-card,
+.reports-card {
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
 .profile-card:hover,
+.appointments-card:hover,
 .reports-card:hover {
-  transform: translateY(-2px);
-  transition: 0.2s;
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 25px 70px rgba(15,23,42,.12);
 }
 
 .profile-card h3 {
@@ -46,19 +87,36 @@
 }
 
 .profile-btn {
-  margin-top: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #2190FF, #6dd5ed);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
+  margin-top: 14px;
 
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: .25s ease;
+
+  box-shadow:
+    0 10px 30px rgba(37,99,235,.2);
+}
 .profile-btn:hover {
-  background: #1976d2;
+    transform: translateY(-2px);
+
 }
 
 .profile-btn.save {

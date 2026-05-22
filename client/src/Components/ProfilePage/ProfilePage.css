@@ -1,24 +1,169 @@
 .profile-page {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 16px;
+  width: min(1200px, 92%);
+  margin: 20px auto 60px;
 }
 
-.profile-page h2 {
+/* HERO */
+
+.profile-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 10px;
+
+  gap: 3rem;
+
+  margin-bottom: 40px;
+}
+
+.profile-hero-left {
+  flex: 1;
+}
+
+.profile-badge {
+  display: inline-block;
+
+  padding: .5rem 1rem;
+
+  border-radius: 999px;
+
+  background: rgba(37,99,235,.08);
+
+  color: #2563eb;
+
+  font-size: .9rem;
+  font-weight: 500;
+
+  margin-bottom: 1rem;
+}
+
+.profile-hero h1 {
+  font-size: clamp(2rem, 6vw, 5rem);
+  line-height: 1;
+  font-weight: 800;
+}
+
+.text-gradient {
+  display: inline-block;
+
+    margin-left: 1rem;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #8b5cf6
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profile-hero p {
+  margin-top: 1.2rem;
+
+  color: #64748b;
+
+  line-height: 1.8;
+
+  max-width: 550px;
+}
+
+/* STATS */
+
+.profile-stats {
+  display: flex;
+  gap: 1rem;
+}
+
+.stat-card {
+  min-width: 120px;
+  padding: 1.2rem;
+  border-radius: 24px;
+
+  background: rgba(255,255,255,.7);
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,.5);
+
+  box-shadow:
+    0 20px 60px rgba(15,23,42,.08);
+
   text-align: center;
-  margin-bottom: 30px;
 }
 
-/* 🔥 igual estilo que reviews (cards alineadas) */
+.stat-card h3 {
+  font-size: 2rem;
+  color: #2563eb;
+}
+
+.stat-card span {
+  color: #64748b;
+}
+
+.profile-page::before {
+  content: "";
+
+  position: fixed;
+
+  width: 500px;
+  height: 500px;
+
+  background: radial-gradient(
+    circle,
+    rgba(59,130,246,.12),
+    transparent
+  );
+
+  top: -150px;
+  right: -150px;
+
+  z-index: -1;
+}
+
+/* GRID */
+
 .profile-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 24px;
 }
 
-/* responsive */
-@media (max-width: 768px) {
-  .profile-grid {
-    grid-template-columns: 1fr;
+.profile-field input {
+  padding: 14px 16px;
+
+  border-radius: 14px;
+
+  border: 1px solid #e2e8f0;
+
+  background: rgba(255,255,255,.7);
+
+  font-size: 14px;
+
+  transition: .2s ease;
+}
+
+.profile-field input:focus {
+  outline: none;
+
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 0 4px rgba(59,130,246,.12);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .profile-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-stats {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }

@@ -18,8 +18,8 @@ const Landing_Page = () => {
       </span>
 
       <h1>
-        Healthcare
-        <span className="text-gradient">
+        Healthcare 
+        <span className="text-gradient1">
           Simplified
         </span>
       </h1>

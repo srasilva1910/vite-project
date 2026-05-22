@@ -1,1 +1,0 @@
-export const API_URL = "https://stayhealthy-dgz2.onrender.com";

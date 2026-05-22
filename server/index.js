@@ -14,13 +14,14 @@ app.use(express.static('public'))
 
 // Middleware
 app.use(express.json());
-app.use(cors({
-    origin: "https://stayhealthyf.onrender.com",
-  credentials: true
-
-}
-
-));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+    ],
+    credentials: true,
+  })
+);
 
 // Connect to MongoDB
 connectToMongo();

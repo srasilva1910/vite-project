@@ -59,4 +59,27 @@ router.post("/create", fetchuser, async (req, res) => {
   res.json(report);
 });
 
+router.post("/seed", async (req, res) => {
+
+  const reports = [
+    {
+      filename: "mock_report_cardiology.pdf",
+      filepath: "reports/mock_report_cardiology.pdf",
+      isGlobal: true,
+    },
+    {
+      filename: "mock_report_dermatology.pdf",
+      filepath: "reports/mock_report_dermatology.pdf",
+      isGlobal: true,
+    },
+  ];
+
+  await Report.insertMany(reports);
+
+  res.json({
+    success: true,
+    reports,
+  });
+});
+
 module.exports = router;

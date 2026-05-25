@@ -193,5 +193,28 @@ https://github.com/srasilva1910
 
 ## 📸 Screenshots
 
-### Homepage
-![Homepage](./screenshots/home.png)
+### Landing Page
+
+<p align="center">
+  <img src="./screenshots/LandingPage.png" width="800"/>
+</p>
+
+### Patient Dashboard
+
+<p align="center">
+  <img src="./screenshots/Dashboard.png" width="800"/>
+</p>
+
+### Sign Up / Login
+
+<p align="center">
+  <img src="./screenshots/SignUp_Login.png" width="800"/>
+</p>
+
+### Appointment Booking Experience
+Seamless multi-step booking flow designed to simplify healthcare scheduling and improve user experience.
+
+<p align="center">
+  <img src="./screenshots/BookingFlow.png" width="800"/>
+</p>
+

@@ -78,13 +78,13 @@ const handleSubmit = async (e) => {
 
         <form onSubmit={handleSubmit}>
 
-          <div className="form-group">
+          {/*<div className="form-group">
             <label>Role</label>
             <select name="role" value={formData.role} onChange={handleChange}>
               <option value="doctor">Doctor</option>
               <option value="patient">Patient</option>
             </select>
-          </div>
+          </div>*/}
 
           <div className="form-group">
             <label>Name</label>

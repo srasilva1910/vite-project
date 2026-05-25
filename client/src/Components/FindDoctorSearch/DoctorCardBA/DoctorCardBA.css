@@ -171,7 +171,8 @@
 }
 
 .modal-content h3 {
-  margin-top: 0;
+  margin-top: 10px;
+
 }
 
 .modal-content p {
@@ -453,7 +454,7 @@ select {
 
 .modal-btn.danger {
   background: #fee2e2;
-
+margin-top: 25px;
   color: #dc2626;
 }
 

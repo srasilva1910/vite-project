@@ -66,29 +66,70 @@ const lastAppointment = Array.isArray(appointmentData)
       {/* Render children components */}
       {children}
       {/* Display appointment details if user is logged in and appointmentData is available */}
-      {showNotification && lastAppointment && (          <div className="appointment-card">
-            <div className="appointment-card__content">
+{showNotification && lastAppointment && (
+  <div className="appointment-card">
+    <div className="appointment-card__content">
 
-              <h4 style={{ marginBottom: "8px", color: "#22c55e" }}>
-                ✅ Appointment Confirmed
-              </h4>
+      <div className="notification-header">
+        <div className="notification-title">
 
-              <p><strong>👨‍⚕️ Doctor:</strong> {doctorData?.name}</p>
-              <p><strong>📅 Date:</strong> {lastAppointment.date}</p>
-              <p><strong>⏰ Time:</strong> {lastAppointment.slot}</p>
-               <button
-                    onClick={() => setShowNotification(false)}
-                    className="close-btn"
-                  >
-                    ✖
-                  </button>
-                  <button onClick={() => handleCancel(lastAppointment.id)}>
-                    Cancel
-                  </button>
-            </div>
+          <div className="notification-icon">
+            ✓
           </div>
-        )}
 
+          Appointment Confirmed
+        </div>
+
+        <button
+          onClick={() => setShowNotification(false)}
+          className="close-btn"
+        >
+          ✕
+        </button>
+      </div>
+
+      <div className="notification-info">
+
+        <div className="notification-item">
+          👨‍⚕️
+          <span>
+            <strong>Doctor:</strong> {doctorData?.name}
+          </span>
+        </div>
+
+        <div className="notification-item">
+          📅
+          <span>
+            <strong>Date:</strong> {lastAppointment.date}
+          </span>
+        </div>
+
+        <div className="notification-item">
+          ⏰
+          <span>
+            <strong>Time:</strong> {lastAppointment.slot}
+          </span>
+        </div>
+
+      </div>
+
+      <div className="notification-actions">
+
+        <button
+          className="cancel-btn"
+          onClick={() => handleCancel(lastAppointment.id)}
+        >
+          Cancel
+        </button>
+
+        <button className="view-btn">
+          View
+        </button>
+
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 };

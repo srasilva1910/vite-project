@@ -186,15 +186,15 @@ const DoctorCardBA = ({ name, speciality, experience, ratings }) => {
     {experience} years experience
   </p>
 
-  <p className="doctor-rating">
+  {/*<p className="doctor-rating">
     ⭐ {ratings}
-  </p>
+  </p>*/}
 
 </div>
 {viewMode === "details" ? (
 doctorAppointments.length > 0 && (
     <div>
-    <p>Booking confirmed</p>
+    <h3>Booking confirmed!</h3>
 
 <button
   className="modal-btn danger"
@@ -226,14 +226,14 @@ doctorAppointments.length > 0 && (
 )}
 
     
-<div className="modal-actions">
+{/*<div className="modal-actions">
   <button
     className="modal-btn secondary"
     onClick={() => setShowModal(false)}
   >
     Close
   </button>
-</div>
+</div>*/}
 
     </div>
 </Popup>

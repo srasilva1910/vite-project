@@ -86,10 +86,10 @@ return (
       />
     </div>
 
-    <div className="profile-field">
+    {/* <div className="profile-field">
       <label>Role</label>
       <input name="role" value={user.role} disabled />
-    </div>
+    </div>*/}
 
     {!editing ? (
       <button className="profile-btn" onClick={() => setEditing(true)}>

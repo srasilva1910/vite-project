@@ -37,7 +37,7 @@ const ProfilePage = () => {
           </div>
 
           <div className="stat-card">
-            <h3>5</h3>
+            <h3>3</h3>
             <span>Reports</span>
           </div>
 

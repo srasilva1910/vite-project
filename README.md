@@ -218,3 +218,19 @@ Seamless multi-step booking flow designed to simplify healthcare scheduling and 
   <img src="./screenshots/BookingFlow.png" width="800"/>
 </p>
 
+### Mobile Responsiveness
+
+#### Landing Page
+<p align="center">
+  <img src="./screenshots/ResponsiveLanding.png" width="800"/>
+</p>
+
+#### Appointment Booking Experience
+<p align="center">
+  <img src="./screenshots/ResponsiveBooking.png" width="800"/>
+</p>
+
+#### Patient Dashboard
+<p align="center">
+  <img src="./screenshots/ResponsiveDashboard.png" width="800"/>
+</p>

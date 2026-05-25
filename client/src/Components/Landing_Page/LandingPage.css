@@ -228,6 +228,7 @@ body {
 @media (max-width: 900px) {
 
   .hero-content {
+    margin-top: 5px;
     grid-template-columns: 1fr;
     text-align: center;
   }

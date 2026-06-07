@@ -12,7 +12,7 @@ const AppointmentFormBA = ({ doctorName, doctorSpeciality, onSubmit }) => {
     '11:00 AM',
     '02:00 PM',
     '04:00 PM',
-    '06:00 PM'
+    '06:00 PM',
   ];
 
   const handleFormSubmit = (e) => {
@@ -27,7 +27,7 @@ const AppointmentFormBA = ({ doctorName, doctorSpeciality, onSubmit }) => {
       name,
       phoneNumber,
       date: selectedDate,
-      slot: selectedSlot
+      slot: selectedSlot,
     });
 
     // reset
@@ -37,9 +37,30 @@ const AppointmentFormBA = ({ doctorName, doctorSpeciality, onSubmit }) => {
     setSelectedSlot('');
   };
 
+  const today = new Date().toISOString().split('T')[0];
+
+  const availableSlots = timeSlots.filter((slot) => {
+    // Se não escolheu data ou não é hoje,
+    // mostra todos os horários
+    if (selectedDate !== today) return true;
+
+    const now = new Date();
+
+    const slotDate = new Date();
+
+    const [time, period] = slot.split(' ');
+    let [hours, minutes] = time.split(':').map(Number);
+
+    if (period === 'PM' && hours !== 12) hours += 12;
+    if (period === 'AM' && hours === 12) hours = 0;
+
+    slotDate.setHours(hours, minutes, 0, 0);
+
+    return slotDate > now;
+  });
+
   return (
     <form onSubmit={handleFormSubmit} className="appointment-form">
-
       <div className="form-group">
         <label>Name:</label>
         <input
@@ -49,7 +70,6 @@ const AppointmentFormBA = ({ doctorName, doctorSpeciality, onSubmit }) => {
           required
         />
       </div>
-
       <div className="form-group">
         <label>Phone Number:</label>
         <input
@@ -59,18 +79,20 @@ const AppointmentFormBA = ({ doctorName, doctorSpeciality, onSubmit }) => {
           required
         />
       </div>
-
       {/* ✅ Fecha */}
       <div className="form-group">
         <label>Select Date:</label>
         <input
           type="date"
           value={selectedDate}
-          onChange={(e) => setSelectedDate(e.target.value)}
+          onChange={(e) => {
+            setSelectedDate(e.target.value);
+            setSelectedSlot('');
+          }}
+          min={today}
           required
         />
       </div>
-
       {/* ✅ Time slots */}
       <div className="form-group">
         <label>Select Time Slot:</label>
@@ -80,20 +102,17 @@ const AppointmentFormBA = ({ doctorName, doctorSpeciality, onSubmit }) => {
           required
         >
           <option value="">-- Select --</option>
-          {timeSlots.map((slot) => (
+          {availableSlots.map((slot) => (
             <option key={slot} value={slot}>
               {slot}
             </option>
           ))}
         </select>
       </div>
-
-<button
-  type="submit"
-  className="submit-appointment-btn"
->
-  Confirm Appointment
-</button>    </form>
+      <button type="submit" className="submit-appointment-btn">
+        Confirm Appointment
+      </button>{' '}
+    </form>
   );
 };
 

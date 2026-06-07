@@ -8,64 +8,45 @@ import "./LandingPage.css"; // Importing the CSS styles for the Landing_Page com
 // Defining the Function component Landing_Page
 const Landing_Page = () => {
   return (
-<section className="hero-section">
-  <div className="container hero-content">
+    <section className="hero-section">
+      <div className="container hero-content">
+        <div className="hero-left">
+          <span className="hero-badge">Modern Healthcare Platform</span>
 
-    <div className="hero-left">
+          <h1>
+            Healthcare
+            <span className="text-gradient1">Simplified</span>
+          </h1>
 
-      <span className="hero-badge">
-        Modern Healthcare Platform
-      </span>
+          <p>
+            Book appointments, connect with doctors, and manage your healthcare
+            experience in one modern platform.
+          </p>
 
-      <h1>
-        Healthcare 
-        <span className="text-gradient1">
-          Simplified
-        </span>
-      </h1>
+          <div className="hero-buttons">
+            <Link to="/find-doctor">
+              <button className="primary-btn">Get Started</button>
+            </Link>
 
-      <p>
-        Book appointments, connect with doctors,
-        and manage your healthcare experience
-        in one modern platform.
-      </p>
-
-      <div className="hero-buttons">
-        <Link to="/find-doctor">
-          <button className="primary-btn">
-            Get Started
-          </button>
-        </Link>
-
-        <button className="secondary-btn">
-          Learn More
-        </button>
-      </div>
-
-    </div>
-
-    <div className="hero-right">
-
-      <div className="hero-card">
-        <h3>24/7 Consultation</h3>
-        <p>Instant healthcare assistance anytime.</p>
-
-        <div className="hero-buttons-left">
-        <Link to="/instant-consultation">
-          <button className="primary-btn">
-            Urgent Attention
-          </button>
-        </Link>
+            <button className="secondary-btn">Learn More</button>
+          </div>
         </div>
 
+        <div className="hero-right">
+          <div className="hero-card">
+            <h3>24/7 Consultation</h3>
+            <p>Instant healthcare assistance anytime.</p>
 
+            <div className="hero-buttons-left">
+              <Link to="/instant-consultation">
+                <button className="primary-btn">Urgent Attention</button>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
-
-    </div>
-
-  </div>
-</section>
+    </section>
   );
 };
 
-export default Landing_Page; // E
+export default Landing_Page;
